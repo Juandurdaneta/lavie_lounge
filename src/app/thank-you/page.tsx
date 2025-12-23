@@ -133,7 +133,7 @@ export default function ThankYouPage() {
           >
             <p className="text-lg text-ivory/80 leading-relaxed">
               Thank you for your interest in La Vie Lounge. Our team will review your
-              application and reach out within 5 business days if there's alignment.
+              application and reach out within 5 business days if there&apos;s alignment.
             </p>
 
             <p className="font-accent text-xl italic text-gold">

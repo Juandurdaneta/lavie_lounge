@@ -44,8 +44,8 @@ export default function ApplyPage() {
           <ArtDecoDivider className="mb-8" />
 
           <p className="text-lg text-ivory/70 leading-relaxed">
-            Tell us about yourself and what you're building. Our team will review your
-            application and reach out if there's alignment.
+            Tell us about yourself and what you&apos;re building. Our team will review your
+            application and reach out if there&apos;s alignment.
           </p>
         </div>
 
