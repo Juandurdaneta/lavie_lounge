@@ -59,7 +59,7 @@ export default function ThankYouPage() {
               }}
               initial={{ y: -20, opacity: 1 }}
               animate={{
-                y: window?.innerHeight ? window.innerHeight + 20 : 1000,
+                y: typeof window !== "undefined" ? window.innerHeight + 20 : 1000,
                 opacity: 0,
                 rotate: 45 + Math.random() * 360,
               }}
