@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Smooth scrolling for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Base body styles */
+  body {
+    @apply bg-navy text-ivory antialiased font-sans;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-gold/30 text-ivory;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2 ring-offset-navy;
+  }
+
+  /* Heading defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-wide;
+  }
+}
+
+@layer components {
+  /* Art Deco decorative line */
+  .art-deco-line {
+    @apply relative;
+  }
+
+  .art-deco-line::after {
+    content: "";
+    @apply absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent;
+  }
+
+  /* Art Deco corner accent */
+  .art-deco-corner {
+    @apply relative;
+  }
+
+  .art-deco-corner::before,
+  .art-deco-corner::after {
+    content: "";
+    @apply absolute w-8 h-8 border-gold opacity-50;
+  }
+
+  .art-deco-corner::before {
+    @apply top-0 left-0 border-t-2 border-l-2;
+  }
+
+  .art-deco-corner::after {
+    @apply bottom-0 right-0 border-b-2 border-r-2;
+  }
+
+  /* Gold shimmer effect for buttons */
+  .shimmer-gold {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201, 169, 98, 0.4) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite;
+  }
+
+  /* Elegant card styling */
+  .elegant-card {
+    @apply relative bg-navy-light/50 backdrop-blur-sm border border-gold/20 rounded-sm;
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .elegant-card:hover {
+    @apply border-gold/40 shadow-gold;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Gold text gradient */
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #c9a962 0%, #d4af37 50%, #b8860b 100%);
+  }
+
+  /* Subtle background pattern overlay */
+  .pattern-overlay {
+    @apply relative;
+  }
+
+  .pattern-overlay::before {
+    content: "";
+    @apply absolute inset-0 opacity-[0.03] pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a962' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+
+  /* Art Deco sunburst pattern */
+  .sunburst-pattern {
+    @apply relative overflow-hidden;
+  }
+
+  .sunburst-pattern::before {
+    content: "";
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply w-[200%] h-[200%] opacity-[0.02] pointer-events-none;
+    background: repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg 10deg,
+      #c9a962 10deg 20deg
+    );
+  }
+
+  /* Form input base styles */
+  .form-input {
+    @apply w-full bg-navy-dark/50 border border-gold/30 rounded-sm;
+    @apply px-4 py-3 text-ivory placeholder-ivory/40;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:border-gold focus:ring-1 focus:ring-gold focus:outline-none;
+  }
+
+  .form-input:hover:not(:focus) {
+    @apply border-gold/50;
+  }
+
+  /* Accordion styling */
+  .accordion-content {
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Delay utilities for staggered animations */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Opacity fill mode for animations */
+  .fill-mode-forwards {
+    animation-fill-mode: forwards;
+  }
+
+  /* Initial hidden state for fade animations */
+  .animate-on-scroll {
+    opacity: 0;
+  }
+}
+
+/* Custom scrollbar for larger screens */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold/50;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
