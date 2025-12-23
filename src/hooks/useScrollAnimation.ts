@@ -1,6 +1,6 @@
 "use client";
 
-import { useInView } from "framer-motion";
+import { useInView, UseInViewOptions } from "framer-motion";
 import { useRef, RefObject } from "react";
 
 interface ScrollAnimationOptions {
@@ -22,7 +22,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
   const isInView = useInView(ref, {
     once,
     amount: threshold,
-    margin,
+    margin: margin as UseInViewOptions["margin"],
   });
 
   return { ref: ref as RefObject<T>, isInView };
