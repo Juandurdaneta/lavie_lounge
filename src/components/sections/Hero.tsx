@@ -41,7 +41,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
           {/* Pre-headline */}
           <motion.p
@@ -56,10 +56,10 @@ export function Hero() {
           {/* Main headline */}
           <h1
             id="hero-heading"
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-ivory leading-tight tracking-wide text-balance"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-ivory leading-relaxed tracking-wide text-balance"
           >
             Your Network Is Your Net Worth.{" "}
-            <span className="block mt-2 text-gold-gradient">
+            <span className="block pt-4 text-gold-gradient">
               This Is Where You Build Both.
             </span>
           </h1>

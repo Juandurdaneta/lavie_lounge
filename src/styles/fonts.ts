@@ -1,14 +1,14 @@
-import { Playfair_Display, Raleway, Cormorant_Garamond } from "next/font/google";
+import { Raleway, Cormorant_Garamond } from "next/font/google";
+import localFont from "next/font/local";
 
 /**
- * Playfair Display - Elegant serif for headlines
- * Evokes the sophistication of the Gatsby era
+ * Hatficeld - Custom serif for headlines
+ * Elegant display font for titles
  */
-export const playfair = Playfair_Display({
-  subsets: ["latin"],
+export const hatficeld = localFont({
+  src: "../fonts/Hatficeld.otf",
   display: "swap",
-  variable: "--font-playfair",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-hatficeld",
 });
 
 /**
@@ -37,4 +37,4 @@ export const cormorant = Cormorant_Garamond({
 /**
  * Combined font variable classes for root layout
  */
-export const fontVariables = `${playfair.variable} ${raleway.variable} ${cormorant.variable}`;
+export const fontVariables = `${hatficeld.variable} ${raleway.variable} ${cormorant.variable}`;

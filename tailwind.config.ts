@@ -18,9 +18,9 @@ const config: Config = {
         richBlack: "#1b1b1b",
         // Gold Accents
         gold: {
-          DEFAULT: "#c9a962",
-          light: "#d4af37",
-          dark: "#b8860b",
+          DEFAULT: "#CBBA91",
+          light: "#d9ccab",
+          dark: "#b5a47b",
           muted: "#a89968",
         },
         // Text Colors
@@ -30,7 +30,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-playfair)", "serif"],
+        display: ["var(--font-hatficeld)", "serif"],
         sans: ["var(--font-raleway)", "sans-serif"],
         accent: ["var(--font-cormorant)", "serif"],
       },
@@ -79,15 +79,15 @@ const config: Config = {
       },
       backgroundImage: {
         "gold-gradient":
-          "linear-gradient(135deg, #c9a962 0%, #d4af37 50%, #b8860b 100%)",
+          "linear-gradient(135deg, #CBBA91 0%, #d9ccab 50%, #b5a47b 100%)",
         "navy-gradient":
           "linear-gradient(180deg, #0a1628 0%, #0d1b2a 50%, #1b1b1b 100%)",
         "radial-gold":
-          "radial-gradient(circle at center, rgba(201, 169, 98, 0.15) 0%, transparent 70%)",
+          "radial-gradient(circle at center, rgba(203, 186, 145, 0.15) 0%, transparent 70%)",
       },
       boxShadow: {
-        gold: "0 0 20px rgba(201, 169, 98, 0.3)",
-        "gold-lg": "0 0 40px rgba(201, 169, 98, 0.4)",
+        gold: "0 0 20px rgba(203, 186, 145, 0.3)",
+        "gold-lg": "0 0 40px rgba(203, 186, 145, 0.4)",
         elegant: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
       },
     },
