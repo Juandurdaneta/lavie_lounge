@@ -5,13 +5,23 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 
-const navLinks = [
-  { href: "#why", label: "Why Join" },
-  { href: "#process", label: "Process" },
-  { href: "#membership", label: "Membership" },
-  { href: "#faq", label: "FAQ" },
+type NavLink = {
+  href: string;
+  label: string;
+  isLink?: boolean;
+};
+
+const leftNavLinks: NavLink[] = [
+  { href: "#about", label: "ABOUT" },
+  { href: "#gallery", label: "GALLERY" },
+  { href: "#team", label: "MEET THE TEAM" },
+];
+
+const rightNavLinks: NavLink[] = [
+  { href: "#membership", label: "MEMBERSHIP" },
+  { href: "#packages", label: "PACKAGES" },
+  { href: "/apply", label: "INQUIRE", isLink: true },
 ];
 
 /**
@@ -65,40 +75,63 @@ export function Header() {
       )}
     >
       <nav
-        className="section-container flex items-center justify-between h-20"
+        className="section-container flex items-center justify-between h-20 lg:h-24"
         aria-label="Main navigation"
       >
-        {/* Logo */}
-        <Link
-          href="/"
-          className="font-display text-2xl font-semibold tracking-wide text-ivory hover:text-gold transition-colors"
-        >
-          La Vie
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+        {/* Left Navigation */}
+        <div className="hidden lg:flex items-center gap-10 flex-1">
+          {leftNavLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium tracking-wide text-ivory/70 hover:text-gold transition-colors"
+              className="text-xs font-sans font-medium tracking-ultra-wide text-gold/80 hover:text-gold transition-colors"
             >
               {link.label}
             </a>
           ))}
-          <Link href="/apply">
-            <Button variant="outline" size="default">
-              Request Invitation
-            </Button>
-          </Link>
+        </div>
+
+        {/* Center Logo */}
+        <Link
+          href="/"
+          className="flex flex-col items-center justify-center hover:opacity-80 transition-opacity"
+        >
+          <span className="font-display text-2xl lg:text-3xl font-semibold tracking-extra-wide text-gold leading-tight">
+            LA VIE
+          </span>
+          <span className="font-display text-xl lg:text-2xl font-semibold tracking-extra-wide text-gold leading-tight -mt-1">
+            LOUNGE
+          </span>
+        </Link>
+
+        {/* Right Navigation */}
+        <div className="hidden lg:flex items-center justify-end gap-10 flex-1">
+          {rightNavLinks.map((link) =>
+            link.isLink ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xs font-sans font-medium tracking-ultra-wide text-gold/80 hover:text-gold transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-xs font-sans font-medium tracking-ultra-wide text-gold/80 hover:text-gold transition-colors"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </div>
 
         {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-ivory hover:text-gold transition-colors"
+          className="lg:hidden p-2 text-gold hover:text-gold-light transition-colors absolute right-4"
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMobileMenuOpen}
         >
@@ -118,37 +151,35 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden bg-navy-dark/95 backdrop-blur-md border-t border-gold/10"
+            className="lg:hidden bg-navy-dark/95 backdrop-blur-md border-t border-gold/10"
           >
-            <div className="section-container py-6 flex flex-col gap-4">
-              {navLinks.map((link, index) => (
-                <motion.a
+            <div className="section-container py-8 flex flex-col items-center gap-6">
+              {[...leftNavLinks, ...rightNavLinks].map((link, index) => (
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-ivory/80 hover:text-gold transition-colors py-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  {link.label}
-                </motion.a>
+                  {link.isLink ? (
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-sm font-sans font-medium tracking-ultra-wide text-gold/80 hover:text-gold transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-sm font-sans font-medium tracking-ultra-wide text-gold/80 hover:text-gold transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  )}
+                </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navLinks.length * 0.05 }}
-              >
-                <Link
-                  href="/apply"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block"
-                >
-                  <Button variant="primary" size="large" className="w-full mt-2">
-                    Request Invitation
-                  </Button>
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}
