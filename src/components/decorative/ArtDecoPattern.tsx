@@ -19,16 +19,16 @@ export function ArtDecoPattern({
 }: ArtDecoPatternProps) {
   const patterns = {
     // Diamond/rhombus pattern
-    diamonds: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a962' stroke-width='0.5'/%3E%3C/svg%3E")`,
+    diamonds: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23C9A961' stroke-width='0.5'/%3E%3C/svg%3E")`,
 
     // Sunburst/radial pattern
-    sunburst: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a962' stroke-width='0.5'%3E%3Cline x1='50' y1='0' x2='50' y2='100'/%3E%3Cline x1='0' y1='50' x2='100' y2='50'/%3E%3Cline x1='0' y1='0' x2='100' y2='100'/%3E%3Cline x1='100' y1='0' x2='0' y2='100'/%3E%3Cline x1='25' y1='0' x2='75' y2='100'/%3E%3Cline x1='75' y1='0' x2='25' y2='100'/%3E%3Cline x1='0' y1='25' x2='100' y2='75'/%3E%3Cline x1='0' y1='75' x2='100' y2='25'/%3E%3C/g%3E%3C/svg%3E")`,
+    sunburst: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A961' stroke-width='0.5'%3E%3Cline x1='50' y1='0' x2='50' y2='100'/%3E%3Cline x1='0' y1='50' x2='100' y2='50'/%3E%3Cline x1='0' y1='0' x2='100' y2='100'/%3E%3Cline x1='100' y1='0' x2='0' y2='100'/%3E%3Cline x1='25' y1='0' x2='75' y2='100'/%3E%3Cline x1='75' y1='0' x2='25' y2='100'/%3E%3Cline x1='0' y1='25' x2='100' y2='75'/%3E%3Cline x1='0' y1='75' x2='100' y2='25'/%3E%3C/g%3E%3C/svg%3E")`,
 
     // Chevron/arrow pattern
-    chevrons: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L20 0 L40 20 M0 40 L20 20 L40 40' fill='none' stroke='%23c9a962' stroke-width='0.5'/%3E%3C/svg%3E")`,
+    chevrons: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L20 0 L40 20 M0 40 L20 20 L40 40' fill='none' stroke='%23C9A961' stroke-width='0.5'/%3E%3C/svg%3E")`,
 
     // Horizontal lines pattern
-    lines: `url("data:image/svg+xml,%3Csvg width='40' height='8' viewBox='0 0 40 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='4' x2='40' y2='4' stroke='%23c9a962' stroke-width='0.5'/%3E%3C/svg%3E")`,
+    lines: `url("data:image/svg+xml,%3Csvg width='40' height='8' viewBox='0 0 40 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='4' x2='40' y2='4' stroke='%23C9A961' stroke-width='0.5'/%3E%3C/svg%3E")`,
   };
 
   return (

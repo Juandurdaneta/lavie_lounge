@@ -20,7 +20,7 @@ export function Footer() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-display text-2xl font-semibold tracking-wide text-ivory hover:text-gold transition-colors"
+            className="font-display text-2xl font-semibold tracking-wide text-gold hover:text-gold-light transition-colors"
           >
             La Vie Lounge
           </Link>
