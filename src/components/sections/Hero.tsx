@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils/cn";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { ArtDecoPattern, ArtDecoSunburst } from "@/components/decorative/ArtDecoPattern";
+import { ArtDecoSunburst } from "@/components/decorative/ArtDecoPattern";
 
 /**
  * Hero Section - Full viewport with dramatic Art Deco styling
@@ -19,8 +19,6 @@ export function Hero() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-navy to-navy-light" />
 
-      {/* Art Deco pattern overlay */}
-      <ArtDecoPattern variant="diamonds" opacity={0.04} />
 
       {/* Animated sunburst decoration */}
       <motion.div

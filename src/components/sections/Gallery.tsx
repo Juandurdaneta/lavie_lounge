@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils/cn";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArtDecoPattern, ArtDecoDivider } from "@/components/decorative/ArtDecoPattern";
+import { ArtDecoDivider } from "@/components/decorative/ArtDecoPattern";
 import { useScrollAnimation, scrollAnimationVariants } from "@/hooks/useScrollAnimation";
 
 // Gallery images - update paths after adding images to public folder
@@ -50,7 +50,6 @@ export function Gallery() {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-navy to-navy-light" />
-      <ArtDecoPattern variant="diamonds" opacity={0.02} />
 
       <div className="relative section-container">
         <motion.div

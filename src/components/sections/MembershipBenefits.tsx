@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils/cn";
 import { motion } from "framer-motion";
-import { ArtDecoPattern, ArtDecoDivider } from "@/components/decorative/ArtDecoPattern";
+import { ArtDecoDivider } from "@/components/decorative/ArtDecoPattern";
 import { useScrollAnimation, scrollAnimationVariants } from "@/hooks/useScrollAnimation";
 import { Check } from "lucide-react";
 
@@ -28,7 +28,6 @@ export function MembershipBenefits() {
     >
       {/* Background with subtle pattern */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-navy to-navy-light" />
-      <ArtDecoPattern variant="lines" opacity={0.03} />
 
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-64 h-64 border-t border-l border-gold/10" />

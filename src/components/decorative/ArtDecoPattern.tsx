@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils/cn";
 
 interface ArtDecoPatternProps {
   className?: string;
-  variant?: "diamonds" | "sunburst" | "chevrons" | "lines";
+  variant?: "diamonds" | "sunburst" | "chevrons" | "lines" | "fan";
   opacity?: number;
 }
 
@@ -14,9 +14,25 @@ interface ArtDecoPatternProps {
  */
 export function ArtDecoPattern({
   className,
-  variant = "diamonds",
-  opacity = 0.03,
+  variant = "fan",
+  opacity = 0.15,
 }: ArtDecoPatternProps) {
+  // Use the fan pattern image as default
+  if (variant === "fan") {
+    return (
+      <div
+        className={cn("absolute inset-0 pointer-events-none", className)}
+        style={{
+          backgroundImage: `url("/images/PATTERN-1.webp")`,
+          backgroundSize: "300px 300px",
+          backgroundRepeat: "repeat",
+          opacity,
+        }}
+        aria-hidden="true"
+      />
+    );
+  }
+
   const patterns = {
     // Diamond/rhombus pattern
     diamonds: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23C9A961' stroke-width='0.5'/%3E%3C/svg%3E")`,

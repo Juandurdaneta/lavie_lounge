@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils/cn";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { ArtDecoPattern, ArtDecoDivider } from "@/components/decorative/ArtDecoPattern";
+import { ArtDecoDivider } from "@/components/decorative/ArtDecoPattern";
 import { useScrollAnimation, scrollAnimationVariants } from "@/hooks/useScrollAnimation";
 
 /**
@@ -22,7 +22,6 @@ export function WhyStatusMatters() {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-light via-navy to-navy-dark" />
-      <ArtDecoPattern variant="chevrons" opacity={0.02} />
 
       <div className="relative section-container">
         <motion.div

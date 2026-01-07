@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils/cn";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { ArtDecoPattern, ArtDecoDivider, ArtDecoFrame } from "@/components/decorative/ArtDecoPattern";
+import { ArtDecoDivider, ArtDecoFrame } from "@/components/decorative/ArtDecoPattern";
 import { useScrollAnimation, scrollAnimationVariants } from "@/hooks/useScrollAnimation";
 import { UserPlus, Compass, Users } from "lucide-react";
 
@@ -88,7 +88,6 @@ export function JoinDiscoverConnect() {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-navy-dark" />
-      <ArtDecoPattern variant="sunburst" opacity={0.02} />
 
       <div className="relative section-container">
         <motion.div

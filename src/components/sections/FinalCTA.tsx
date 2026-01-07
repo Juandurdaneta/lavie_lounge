@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils/cn";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { ArtDecoPattern, ArtDecoSunburst, GoldShimmerLine } from "@/components/decorative/ArtDecoPattern";
+import { ArtDecoSunburst, GoldShimmerLine } from "@/components/decorative/ArtDecoPattern";
 import { useScrollAnimation, scrollAnimationVariants } from "@/hooks/useScrollAnimation";
 
 /**
@@ -22,8 +22,6 @@ export function FinalCTA() {
       {/* Dramatic background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-dark to-richBlack" />
 
-      {/* Pattern overlay */}
-      <ArtDecoPattern variant="sunburst" opacity={0.03} />
 
       {/* Animated sunburst */}
       <motion.div

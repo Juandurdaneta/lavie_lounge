@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Accordion } from "@/components/ui/Accordion";
-import { ArtDecoPattern, ArtDecoDivider } from "@/components/decorative/ArtDecoPattern";
+import { ArtDecoDivider } from "@/components/decorative/ArtDecoPattern";
 import { useScrollAnimation, scrollAnimationVariants } from "@/hooks/useScrollAnimation";
 
 const faqItems = [
@@ -66,7 +66,6 @@ export function FAQ() {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-navy-dark" />
-      <ArtDecoPattern variant="diamonds" opacity={0.02} />
 
       <div className="relative section-container">
         <motion.div
