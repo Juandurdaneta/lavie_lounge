@@ -92,13 +92,13 @@ export function Gallery() {
                 <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-colors duration-300" />
               </motion.div>
 
-              {/* Two stacked images */}
-              <div className="grid grid-cols-2 gap-4">
+              {/* Two vertically stacked images */}
+              <div className="grid grid-rows-2 gap-4 h-full">
                 {galleryImages.slice(1, 3).map((image) => (
                   <motion.div
                     key={image.src}
                     variants={scrollAnimationVariants.scaleIn}
-                    className="relative overflow-hidden rounded-sm border border-gold/10 group aspect-square"
+                    className="relative overflow-hidden rounded-sm border border-gold/10 group"
                   >
                     <Image
                       src={image.src}
