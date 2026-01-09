@@ -200,7 +200,7 @@ export function ApplicationForm() {
             />
 
             <Textarea
-              label="What do you hope to gain from La Vie?"
+              label="What do you hope to gain from the membership?"
               placeholder="Share your goals for joining our community..."
               error={errors.hopesToGain?.message}
               characterCount={{

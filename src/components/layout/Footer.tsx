@@ -27,7 +27,7 @@ export function Footer() {
 
           {/* Location */}
           <p className="text-ivory/50 text-sm">
-            Miramar, South Florida
+            Miramar, Florida
           </p>
 
           {/* Copyright */}
@@ -46,10 +46,10 @@ export function Footer() {
           </Link>
           <span className="text-gold/30 hidden sm:inline" aria-hidden="true">|</span>
           <a
-            href="mailto:hello@lavielounge.com"
+            href="mailto:info@laviefl.com"
             className="text-ivory/50 hover:text-gold transition-colors"
           >
-            hello@lavielounge.com
+            info@laviefl.com
           </a>
         </div>
 

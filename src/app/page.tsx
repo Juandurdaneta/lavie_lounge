@@ -17,7 +17,7 @@ export default function HomePage() {
       <Hero />
       <WhyStatusMatters />
       <Gallery />
-      <MeetTheTeam />
+      {/* <MeetTheTeam /> */}
       <JoinDiscoverConnect />
       <MembershipBenefits />
       <FAQ />

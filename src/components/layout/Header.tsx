@@ -15,13 +15,10 @@ type NavLink = {
 const leftNavLinks: NavLink[] = [
   { href: "#about", label: "ABOUT" },
   { href: "#gallery", label: "GALLERY" },
-  { href: "#team", label: "MEET THE TEAM" },
 ];
 
 const rightNavLinks: NavLink[] = [
-  { href: "#membership", label: "MEMBERSHIP" },
-  { href: "#packages", label: "PACKAGES" },
-  { href: "/apply", label: "INQUIRE", isLink: true },
+  { href: "/apply", label: "MEMBERSHIP", isLink: true },
 ];
 
 /**

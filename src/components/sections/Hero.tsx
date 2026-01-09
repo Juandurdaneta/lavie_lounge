@@ -54,10 +54,10 @@ export function Hero() {
           {/* Main headline */}
           <h1
             id="hero-heading"
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-ivory leading-relaxed tracking-wide text-balance uppercase"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-ivory leading-tight tracking-wide uppercase max-w-6xl mx-auto px-4"
           >
-            Your Network Is Your Net Worth.{" "}
-            <span className="block pt-4 text-gold-gradient uppercase">
+            <span className="block whitespace-nowrap">Your Network Is Your Net Worth.</span>
+            <span className="block pt-2 text-gold-gradient whitespace-nowrap">
               This Is Where You Build Both.
             </span>
           </h1>
