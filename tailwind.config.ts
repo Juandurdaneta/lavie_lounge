@@ -16,12 +16,12 @@ const config: Config = {
           dark: "#050d17",
         },
         richBlack: "#1b1b1b",
-        // Gold Accents - matching laviefl.com brand
+        // Gold Accents - matching laviefl.com brand (beige-gold tone)
         gold: {
-          DEFAULT: "#C9A961",
-          light: "#D4B896",
-          dark: "#B8944D",
-          muted: "#A68A4B",
+          DEFAULT: "#C5B082",
+          light: "#D4C4A8",
+          dark: "#A89468",
+          muted: "#B5A078",
         },
         // Text Colors
         ivory: {
@@ -79,15 +79,15 @@ const config: Config = {
       },
       backgroundImage: {
         "gold-gradient":
-          "linear-gradient(135deg, #C9A961 0%, #D4B896 50%, #B8944D 100%)",
+          "linear-gradient(135deg, #C5B082 0%, #D4C4A8 50%, #A89468 100%)",
         "navy-gradient":
           "linear-gradient(180deg, #0a1628 0%, #0d1b2a 50%, #1b1b1b 100%)",
         "radial-gold":
-          "radial-gradient(circle at center, rgba(201, 169, 97, 0.15) 0%, transparent 70%)",
+          "radial-gradient(circle at center, rgba(197, 176, 130, 0.15) 0%, transparent 70%)",
       },
       boxShadow: {
-        gold: "0 0 20px rgba(201, 169, 97, 0.3)",
-        "gold-lg": "0 0 40px rgba(201, 169, 97, 0.4)",
+        gold: "0 0 20px rgba(197, 176, 130, 0.3)",
+        "gold-lg": "0 0 40px rgba(197, 176, 130, 0.4)",
         elegant: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
       },
     },

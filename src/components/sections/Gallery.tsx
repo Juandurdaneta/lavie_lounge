@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils/cn";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArtDecoDivider } from "@/components/decorative/ArtDecoPattern";
@@ -11,27 +10,22 @@ const galleryImages = [
   {
     src: "/images/gallery-1.jpg",
     alt: "Professional networking event",
-    span: "col-span-2 row-span-2",
   },
   {
     src: "/images/gallery-2.jpg",
     alt: "Business meeting atmosphere",
-    span: "col-span-1 row-span-1",
   },
   {
     src: "/images/gallery-3.jpg",
     alt: "Elegant venue setting",
-    span: "col-span-1 row-span-1",
   },
   {
     src: "/images/gallery-4.jpg",
     alt: "Social gathering",
-    span: "col-span-1 row-span-2",
   },
   {
     src: "/images/gallery-5.jpg",
     alt: "Exclusive lounge environment",
-    span: "col-span-1 row-span-1",
   },
 ];
 
@@ -76,32 +70,68 @@ export function Gallery() {
             </p>
           </motion.div>
 
-          {/* Gallery grid */}
+          {/* Gallery grid - 2x3 layout with featured image */}
           <motion.div
             variants={scrollAnimationVariants.fadeInUp}
-            className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
-            {galleryImages.map((image, index) => (
+            {/* Top row - one large featured + two stacked */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              {/* Featured large image */}
               <motion.div
-                key={image.src}
                 variants={scrollAnimationVariants.scaleIn}
-                className={cn(
-                  "relative overflow-hidden rounded-sm border border-gold/10 group",
-                  image.span,
-                  "aspect-square"
-                )}
+                className="relative overflow-hidden rounded-sm border border-gold/10 group aspect-square md:aspect-[4/3]"
               >
                 <Image
-                  src={image.src}
-                  alt={image.alt}
+                  src={galleryImages[0].src}
+                  alt={galleryImages[0].alt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                {/* Hover overlay */}
                 <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-colors duration-300" />
               </motion.div>
-            ))}
+
+              {/* Two stacked images */}
+              <div className="grid grid-cols-2 gap-4">
+                {galleryImages.slice(1, 3).map((image) => (
+                  <motion.div
+                    key={image.src}
+                    variants={scrollAnimationVariants.scaleIn}
+                    className="relative overflow-hidden rounded-sm border border-gold/10 group aspect-square"
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-colors duration-300" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom row - two equal images */}
+            <div className="grid grid-cols-2 gap-4">
+              {galleryImages.slice(3, 5).map((image) => (
+                <motion.div
+                  key={image.src}
+                  variants={scrollAnimationVariants.scaleIn}
+                  className="relative overflow-hidden rounded-sm border border-gold/10 group aspect-[4/3]"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-colors duration-300" />
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>

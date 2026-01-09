@@ -65,7 +65,7 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(201, 169, 97, 0.4) 50%,
+      rgba(197, 176, 130, 0.4) 50%,
       transparent 100%
     );
     background-size: 200% 100%;
@@ -90,7 +90,7 @@
   /* Gold text gradient */
   .text-gold-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #C9A961 0%, #D4B896 50%, #B8944D 100%);
+    background-image: linear-gradient(135deg, #C5B082 0%, #D4C4A8 50%, #A89468 100%);
   }
 
   /* Subtle background pattern overlay */
@@ -101,7 +101,7 @@
   .pattern-overlay::before {
     content: "";
     @apply absolute inset-0 opacity-[0.03] pointer-events-none;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23C9A961' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23C5B082' stroke-width='0.5'/%3E%3C/svg%3E");
     background-size: 60px 60px;
   }
 
@@ -117,7 +117,7 @@
     background: repeating-conic-gradient(
       from 0deg,
       transparent 0deg 10deg,
-      #C9A961 10deg 20deg
+      #C5B082 10deg 20deg
     );
   }
 
