@@ -18,7 +18,8 @@ const leftNavLinks: NavLink[] = [
 ];
 
 const rightNavLinks: NavLink[] = [
-  { href: "/apply", label: "MEMBERSHIP", isLink: true },
+  { href: "#membership", label: "MEMBERSHIP" },
+  { href: "/apply", label: "CONTACT", isLink: true },
 ];
 
 /**
