@@ -8,24 +8,16 @@ import { useScrollAnimation, scrollAnimationVariants } from "@/hooks/useScrollAn
 // Gallery images - update paths after adding images to public folder
 const galleryImages = [
   {
-    src: "/images/gallery-1.jpg",
-    alt: "Professional networking event",
-  },
-  {
-    src: "/images/gallery-2.jpg",
-    alt: "Business meeting atmosphere",
-  },
-  {
-    src: "/images/gallery-3.jpg",
+    src: "/images/gallery-5.jpg",
     alt: "Elegant venue setting",
   },
   {
-    src: "/images/gallery-4.jpg",
-    alt: "Social gathering",
+    src: "/images/gallery-6.jpg",
+    alt: "Exclusive lounge atmosphere",
   },
   {
-    src: "/images/gallery-5.jpg",
-    alt: "Exclusive lounge environment",
+    src: "/images/gallery-7.jpg",
+    alt: "Premium networking environment",
   },
 ];
 
