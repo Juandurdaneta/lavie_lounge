@@ -1,11 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils/cn";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
@@ -27,6 +28,8 @@ export function ApplicationForm() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const {
     register,
@@ -54,6 +57,12 @@ export function ApplicationForm() {
   const hopesToGainLength = watch("hopesToGain")?.length || 0;
 
   const onSubmit = async (data: ApplicationSchemaType) => {
+    // Check for Turnstile token before submitting
+    if (!turnstileToken) {
+      setServerError("Please complete the security verification.");
+      return;
+    }
+
     setIsSubmitting(true);
     setServerError(null);
 
@@ -64,6 +73,8 @@ export function ApplicationForm() {
           formData.append(key, value.toString());
         }
       });
+      // Add Turnstile token
+      formData.append("_turnstileToken", turnstileToken);
 
       const result = await submitApplication(formData);
 
@@ -71,9 +82,15 @@ export function ApplicationForm() {
         router.push("/thank-you");
       } else {
         setServerError(result.message);
+        // Reset Turnstile on failure
+        turnstileRef.current?.reset();
+        setTurnstileToken(null);
       }
     } catch (error) {
       setServerError("An unexpected error occurred. Please try again.");
+      // Reset Turnstile on error
+      turnstileRef.current?.reset();
+      setTurnstileToken(null);
     } finally {
       setIsSubmitting(false);
     }
@@ -230,6 +247,20 @@ export function ApplicationForm() {
             />
           </div>
 
+          {/* Cloudflare Turnstile Widget */}
+          <div className="flex justify-center pt-6 border-t border-gold/20">
+            <Turnstile
+              ref={turnstileRef}
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+              onSuccess={(token) => setTurnstileToken(token)}
+              onError={() => setTurnstileToken(null)}
+              onExpire={() => setTurnstileToken(null)}
+              options={{
+                theme: "dark",
+              }}
+            />
+          </div>
+
           {/* Submit button */}
           <div className="pt-6 border-t border-gold/20">
             <Button
@@ -237,6 +268,7 @@ export function ApplicationForm() {
               variant="primary"
               size="large"
               isLoading={isSubmitting}
+              disabled={!turnstileToken}
               className="w-full md:w-auto"
             >
               Submit Application

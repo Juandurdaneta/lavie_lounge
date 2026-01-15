@@ -9,6 +9,38 @@ const rateLimitStore = new Map<string, { count: number; timestamp: number }>();
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in milliseconds
 const RATE_LIMIT_MAX = 3; // Max 3 submissions per hour per IP
 
+// Cloudflare Turnstile verification
+async function verifyTurnstileToken(token: string): Promise<boolean> {
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+
+  if (!secretKey) {
+    console.error("TURNSTILE_SECRET_KEY is not configured");
+    return false;
+  }
+
+  try {
+    const response = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          secret: secretKey,
+          response: token,
+        }),
+      }
+    );
+
+    const data = await response.json();
+    return data.success === true;
+  } catch (error) {
+    console.error("Turnstile verification error:", error);
+    return false;
+  }
+}
+
 /**
  * Check if the IP has exceeded rate limits
  */
@@ -53,6 +85,24 @@ export async function submitApplication(
         success: false,
         message:
           "Too many submission attempts. Please try again later.",
+      };
+    }
+
+    // Verify Cloudflare Turnstile token
+    const turnstileToken = formData.get("_turnstileToken") as string;
+    if (!turnstileToken) {
+      return {
+        success: false,
+        message: "Security verification required. Please complete the challenge.",
+      };
+    }
+
+    const isTurnstileValid = await verifyTurnstileToken(turnstileToken);
+    if (!isTurnstileValid) {
+      console.log("Turnstile verification failed");
+      return {
+        success: false,
+        message: "Security verification failed. Please try again.",
       };
     }
 
